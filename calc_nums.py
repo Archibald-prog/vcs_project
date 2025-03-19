@@ -1,4 +1,7 @@
 def add_nums(a, b):
+    """
+    Calculates the sum of two numbers
+    """
     return a + b
 
 
