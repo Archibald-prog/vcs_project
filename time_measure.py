@@ -1,3 +1,6 @@
+from timeit import timeit
+
+
 def memorize(func, memory=None):
     if memory is None:
         memory = {}
@@ -10,3 +13,18 @@ def memorize(func, memory=None):
         return res
 
     return wrapper
+
+
+@memorize
+def func_fib_1(num):
+    if num < 2:
+        return num
+    return func_fib_1(num - 1) + func_fib_1(num - 2)
+
+
+if __name__ == '__main__':
+    n = 10
+    print(func_fib_1(n))
+    print('====================================')
+    print(f"Exec time for func_fib_1: "
+          f"{timeit('func_fib_1(n)', globals=globals())}")
