@@ -2,6 +2,9 @@ from timeit import timeit
 
 
 def memorize(func, memory=None):
+    """
+    performs memoization of the recursion
+    """
     if memory is None:
         memory = {}
 
