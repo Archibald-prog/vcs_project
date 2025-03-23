@@ -22,9 +22,21 @@ def func_fib_1(num):
     return func_fib_1(num - 1) + func_fib_1(num - 2)
 
 
+@memorize
+def func_fib_2(num):
+    if num < 3:
+        return 1
+    return func_fib_1(num - 1) + func_fib_1(num - 2)
+
+
 if __name__ == '__main__':
     n = 10
     print(func_fib_1(n))
     print('====================================')
+    print(func_fib_2(n))
+    print('====================================')
     print(f"Exec time for func_fib_1: "
           f"{timeit('func_fib_1(n)', globals=globals())}")
+    print('====================================')
+    print(f"Exec time for func_fib_2: "
+          f"{timeit('func_fib_2(n)', globals=globals())}")
